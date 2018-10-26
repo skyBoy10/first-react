@@ -1,0 +1,12 @@
+export const USER_LOGIN = 'USER_LOGIN';
+export const REQUEST = 'REQUEST';
+export const RECEIVE = 'RECEIVE';
+export const GET_FIRST_NODES = 'GET_FIRST_NODES';
+export const GET_CHILD_NODES = 'GET_CHILD_NODES';
+export const IS_LOADING = 'IS_LOADING';
+export const IS_LOADED = 'IS_LOADED';
+export const GET_DETAIL = 'GET_DETAIL';
+export const LOADING_DETAIL = 'LOADING_DETAIL';
+export const OPEN_CONFIG_MODAL = 'OPEN_CONFIG_MODAL';
+export const CLOSE_CONFIG_MODAL = 'CLOSE_CONFIG_MODAL';
+export const SWITCH_DISABLED = 'SWITCH_DISABLED';
