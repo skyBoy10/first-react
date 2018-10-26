@@ -7,16 +7,21 @@ import { updateAction } from '../redux/actions/childNodes';
 class CusTable extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            dataSource: []
+        }
     }
     render() {
         const cols = [
             {
                 title: '序号',
-                dataIndex: 'id'
+                dataIndex: 'id',
+                width: '10%'
             },
             {
                 title: '业务系统',
                 dataIndex: 'business',
+                width: '10%'
             },
             {
                 title: '成熟度',
@@ -26,22 +31,27 @@ class CusTable extends Component {
                         <span className={text > '50%' ? 'font-c-success' : 'font-c-fail'}>{text > '50%' ? '优秀' : '不良'}</span>
                     );
                 },
+                width: '15%'
             },
             {
                 title: '表个数',
                 dataIndex: 'tableCnt',
+                width: '15%'
             },
             {
                 title: '已评估个数',
                 dataIndex: 'accessedCnt',
+                width: '15%'
             },
             {
                 title: '评估覆盖率',
                 dataIndex: 'accessedOver',
+                width: '15%'
             },
             {
                 title: '业务系统覆盖率',
                 dataIndex: 'businessOver',
+                width: '15%'
             }
         ];
         
@@ -62,10 +72,12 @@ class CusTable extends Component {
         };
 
         return (
-            <Table loading={this.props.isLoadingDetail} rowSelection={rowSelection} columns={cols} dataSource
+            <Table loading={this.props.isLoadingDetail} rowKey='id' scroll={{x: false, y: 450}}
+            locale={ {'filterConfirm': '确定', 'filterReset': '', 'emptyText': '暂无数据' }}
+            rowSelection={rowSelection} columns={cols} dataSource
             ={this.props.data} />
         );
-    };
+    }
 };
 
 const mapStateToProps = (state, ownProps) => {

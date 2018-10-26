@@ -8,6 +8,7 @@ import Table from '../components/Table';
 import CusModal from '../components/ConfigModal';
 
 import { openAction } from '../redux/actions/configModal';
+import { clearAction } from '../redux/actions/nodeDetail';
 
 const Search = Input.Search;
 const Option = Select.Option;
@@ -67,6 +68,9 @@ class todoList extends Component {
             </div>
         );
     }
+    componentWillUnmount() {
+        this.props.clearTable();
+    }
 }
 
 const mapStateToProps = (state, ownProps) => {
@@ -81,6 +85,9 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         openModal: () => {
             dispatch(openAction());
+        },
+        clearTable: () => {
+            dispatch(clearAction())
         }
     };
 };

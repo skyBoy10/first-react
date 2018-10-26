@@ -18,6 +18,10 @@ const user = (state, action) => {
                 isFetch: true,
                 isAdmin: true
             }
+        case ActionTypes.SIGN_OUT:
+            return {
+                isAdmin: false
+            }
         default:
             if(!state)
             {

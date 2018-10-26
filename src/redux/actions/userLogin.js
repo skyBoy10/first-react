@@ -1,5 +1,6 @@
 import * as ActionTypes from '../constants/actionTypes';
-import fetch from '../../fetch/index';
+import axios from 'axios';
+import history from '../../history';
 
 const requestAction = () => {
     return {
@@ -14,10 +15,23 @@ const receiveAction = (info) => {
     }
 };
 
-const userLogin = (info) => async dispatch => {
+const singOut = () => {
+    return {
+        type: ActionTypes.SIGN_OUT
+    };
+}
+
+export const loginAction = (info) => async dispatch => {
     dispatch(requestAction());
-    let result = await fetch.mockHttp(1, info);
-    dispatch(receiveAction(result));
+    let result = await axios.post('/login', info);
+
+    if(result.data.errcode == '0')
+    {
+        dispatch(receiveAction(result.data.data));
+    }
 };
 
-export default userLogin;
+export const signOutAction = () => async dispatch => {
+    dispatch(singOut());
+    history.push('/login');
+}

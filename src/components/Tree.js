@@ -3,7 +3,7 @@ import { Tree, Spin } from 'antd';
 import { connect } from 'react-redux';
 import nodeAction from '../redux/actions/firstNodes';
 import { childAction, getChildNodes } from '../redux/actions/childNodes';
-import detailAction from '../redux/actions/nodeDetail';
+import { detailAction } from '../redux/actions/nodeDetail';
 
 const TreeNode = Tree.TreeNode;
 

@@ -5,6 +5,7 @@ import { Route, Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { store } from './redux/store/store'
 import history from './history';
+import './mock/mock';
 
 import './css/common.less'
 

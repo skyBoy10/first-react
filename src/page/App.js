@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Layout } from 'antd';
 import { Route } from 'react-router-dom';
 import { connect } from 'react-redux';
+import history from '../history';
 
 //共用组件
 import Nav from '../components/Nav';
@@ -21,11 +22,17 @@ class App extends Component {
     constructor(props) {
         super(props);
     }
+    componentDidMount() {
+        if(!this.props.isAdmin) {
+            history.push('/login');
+        }
+    }
     render() {
         return (
             <div className='h-full'>
+            <Route path='/login' component={Login} />
             {
-                this.props.isAdmin ? 
+                this.props.isAdmin && 
                 (
                     <Layout className='h-full'>
                         <Nav></Nav>
@@ -40,12 +47,13 @@ class App extends Component {
                             <Bottom></Bottom>
                         </Layout>
                     </Layout>
-                ) 
-                : 
-                (<Login></Login>)
+                )
             }      
             </div>
         );
+    }
+    componentDidUpdate() {
+        
     }
 }
 

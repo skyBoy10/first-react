@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Form, Row, Col, Input, Icon, Button} from 'antd';
 import { connect } from 'react-redux';
-import loginAction from '../redux/actions/userLogin';
+import { loginAction } from '../redux/actions/userLogin';
 const FormItem = Form.Item;
 
 class Login extends Component {
@@ -28,7 +28,7 @@ class Login extends Component {
 
         return (<div className='pos-a m-l--300 m-t--200 t-half l-half h-300 w-600 b-c-gray-1'>
         <Form onSubmit = {this.handleSubmit} className='h-full'>
-            <Row className='p-t-20 p-b-20 font-2x txt-center'>
+            <Row className='p-t-20 p-b-20 font-23 txt-center'>
                 <Col span={14} offset={5}>
                     小天地管理平台
                 </Col>

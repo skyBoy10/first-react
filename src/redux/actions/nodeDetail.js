@@ -1,5 +1,5 @@
 import * as ActionTypes from '../constants/actionTypes';
-import fetch from '../../fetch/index';
+import axios from 'axios';
 
 const action = (result) => {
     return {
@@ -14,10 +14,21 @@ const loadingAction = () => {
     };
 };
 
-const firstNodes = (type, nodeInfo) => async dispatch => {
+const clearData = () => {
+    return {
+        type: ActionTypes.CLEAR_DETAIL
+    };
+}
+
+export const detailAction = (type, nodeInfo) => async dispatch => {
     dispatch(loadingAction());
-    let data = await fetch.mockHttp(type, nodeInfo);
-    dispatch(action({data: data, info: nodeInfo}));
+    let data = await axios.post('/business/list', {params: nodeInfo});
+    if(data.data.errcode == '0')
+    {
+        dispatch(action({data: data.data.data, info: nodeInfo}));
+    }
 };
 
-export default firstNodes;
+export const clearAction = () => async dispatch => {
+    dispatch(clearData());
+};

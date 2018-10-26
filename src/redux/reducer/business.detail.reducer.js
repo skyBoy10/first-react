@@ -30,6 +30,11 @@ const reducer = (state, action) => {
                 ...state,
                 isDisabled: action.payload.isDisabled
             };
+        case ActionTypes.CLEAR_DETAIL:
+            return {
+                ...state,
+                data: []
+            }
         default:
             if(!state) {
                 return {
