@@ -27,7 +27,7 @@ const getData = function(option){ //定义请求数据方法
 const getLogin = (param) => {
     let data = JSON.parse(param.body);
     let user = {
-        username: 'kaiqiang.cao',
+        username: 'admin',
         password: '123456'
     };
 
